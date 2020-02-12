@@ -1,0 +1,15 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    background-color: #f2be90;
+}
+
+#app-content {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+#router-content {
+    flex: 1 0 auto;
+  }
