@@ -16,6 +16,7 @@ body {
 
 .logo {
   height: auto;
+  margin: 0.75rem;
   max-height: 3rem;
   max-width: 3rem;
   width: auto;

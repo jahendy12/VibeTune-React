@@ -1,25 +1,22 @@
 import React from 'react'
+import logo from '../../images/logos/Headphones.png'
 
-function LiveRoomCard() {
-    return (
-        <div class="row">
-    <div class="col s12 m7">
-      <div class="card">
-        <div class="card-image">
-          <img src="images/sample-1.jpg"></img>
-          <span class="card-title">Card Title</span>      
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-    )
+function LiveRoomCard(props) {
+	// destructure props
+	const { liveroom } = props
+
+	return (
+		<div className="col s12 m6">
+			<div className="card">
+				<div className="card-content">
+					<img alt="" className="logo" src={logo} />
+					<h3 className="black-text">{liveroom.name}</h3>
+					<p className="black-text">{liveroom.genre}</p>
+					<p className="black-text">{liveroom.description}</p>
+				</div>
+			</div>
+		</div>
+	)
 }
 
 export default LiveRoomCard

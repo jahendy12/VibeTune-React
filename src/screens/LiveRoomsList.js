@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Playlists extends Component {
+class LiveRoomList extends Component {
     state = {
         name: '',
         genre: '',
@@ -29,7 +29,7 @@ class Playlists extends Component {
             description
         } = this.state
 
-        const playlist = {
+        const liveroom = {
             // name: name,
             name,
             // genre: genre,
@@ -37,23 +37,20 @@ class Playlists extends Component {
             // description: description,
             description
         }
-        console.log(playlist)
+        console.log(liveroom)
 
-        // post playlist
-        this.postNewPlaylist(playlist)
+        // post liveroom
+        this.postNewLiveroom(liveroom)
     }
 
-    postNewPlaylist = async (playlist) => {
-        const response = await fetch('http://localhost:5000/playlists/add', {
+    postNewLiveroom = async (liveroom) => {
+        const response = await fetch('http://localhost:5000/liverooms/add', {
             method: 'POST',
             mode: 'cors',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(playlist)
+            body: JSON.stringify(liveroom)
         })
         console.log(response)
-
-        // redirect to /playlistList
-        // this.props.history.push('/playlistList')
     }
 
     render() {
@@ -65,7 +62,7 @@ class Playlists extends Component {
 
         return (
             <div class="row">
-                <h3>Create a new playlist!</h3>
+                <h3>Create a new liveroom</h3>
                 <form class="col s12 white" onSubmit={this.handleSubmit}>
                     <div class="input-field col s6">
                         <input
@@ -104,4 +101,4 @@ class Playlists extends Component {
     }
 }
 
-export default Playlists
+export default LiveRoomList
