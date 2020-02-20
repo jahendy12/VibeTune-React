@@ -2,57 +2,97 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class SignInForm extends Component {
-    state= {
-        username: '',
-        password: '',
-};
+	state = {
+		username: '',
+		password: '',
+	};
 
+	handleChange = (e) => {
+		// destructure event
+		const {
+			name,
+			value
+		} = e.target
 
-getUsers = async () => {
-const response = await fetch('http://localhost:5000/users')
-const json = await response.json()
-this.setState({
-    users: json
-})
-}
+		// update state
+		this.setState({
+			[name]: value
+		});
+	}
 
-componentDidMount() {
-this.getUsers()
-}
+	handleSubmit = (e) => {
+		// prevent page re-load
+		e.preventDefault();
 
-    handleChange(e) {
-        let target = e.target;
-        let value = target.type === 'checkbox' ? target.checked : target.value;
-        let name = target.name;
+		// destructure state
+		const {
+			username,
+			password
+		} = this.state
 
-        this.setState({
-          [name]: value
-        });
-    }
+		const payload = {
+			// username: username,
+			// password: password
+			username,
+			password
+		}
+		console.log(payload)
 
-    handleSubmit(e) {
-        e.preventDefault();
-    }
+		// post playlist
+		this.loginUser(payload)
+	}
 
-    render() {
-        return (
-        <div className="FormCenter">
-            <form onSubmit={this.handleSubmit} className="FormFields" onSubmit={this.handleSubmit}>
-            <div className="FormField">
-                <label className="FormField__Label black-text">Username</label>
-                <input type="username" id="username" className="FormField__Input" placeholder="Enter your username" name="username" value={this.state.username} onChange={this.handleChange} />
-              </div>
-              <div className="FormField">
-                <label className="FormField__Label black-text">Password</label>
-                <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.handleChange} />
-              </div>
-              <div className="FormField">
-                  <button className="btn blue darken-1">Sign In</button>
-              </div>
-            </form>
-          </div>
-        );
-    }
+	loginUser = async (payload) => {
+		// login user
+		const response = await fetch('http://localhost:5000/users/login', {
+			method: 'POST',
+			mode: 'cors',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(payload)
+		})
+
+		// convert response to json
+		const json = await response.json()
+	}
+
+	render() {
+		// destructure state
+		const {
+			username,
+			password
+		} = this.state
+
+		return (
+			<form onSubmit={this.handleSubmit}>
+				<div className="input-field">
+					<input
+						type="text"
+						placeholder="Enter your username"
+						name="username"
+						value={username}
+						onChange={this.handleChange}
+					/>
+				</div>
+				<div className="input-field">
+					<input
+						type="password"
+						placeholder="Enter your password"
+						name="password"
+						value={password}
+						onChange={this.handleChange}
+					/>
+				</div>
+				<div className="input-field">
+					<button className="btn blue darken-1" type="submit">
+						Sign In
+                    </button>
+					<br />
+					<br />
+					<Link to="/sign-up">I don't have an account</Link>
+				</div>
+			</form>
+		);
+	}
 }
 
 export default SignInForm;

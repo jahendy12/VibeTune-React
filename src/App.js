@@ -14,7 +14,7 @@ import NavBar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import PlaylistCard from './components/playlists/PlaylistCard';
 import PlaylistList from './components/playlists/PlaylistList';
-import LiveRoomList from './components/liverooms/LiveRoomList';
+import LiveRoomList from './screens/LiveRoomsList';
 import LiveRoomCard from './components/liverooms/LiveRoomCard';
 import UserProfile from './components/userprofile/userprofile';
 import './styles/styles.css'

@@ -42,7 +42,7 @@ class NavBar extends Component {
                                 <Link to="/">Home</Link>
                             </li>
                             <li>
-                                <Link to="/playlistList">Playlists</Link>
+                                <Link to="/playlists">Playlists</Link>
                             </li>
                             <li>
                                 <Link to="/liveroomlist">Live Rooms</Link>

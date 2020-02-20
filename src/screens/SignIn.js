@@ -3,8 +3,12 @@ import SignInForm from '../components/auth/SignInForm'
 
 function SignIn() {
     return (
-        <div>
-            <SignInForm />
+        <div className="container">
+            <div className="row">
+                <div className="col s12 white">
+                <SignInForm />
+                </div>
+            </div>
         </div>
     )
 }

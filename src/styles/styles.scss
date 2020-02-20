@@ -11,7 +11,9 @@ body {
 }
 
 #router-content {
+  display: flex;
   flex: 1 0 auto;
+  align-items: center;
 }
 
 .logo {
@@ -20,4 +22,8 @@ body {
   max-height: 3rem;
   max-width: 3rem;
   width: auto;
+}
+
+input {
+  color: black;
 }
