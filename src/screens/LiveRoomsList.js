@@ -128,7 +128,7 @@ class Liverooms extends Component {
         console.log(json)
         
         // fetch liverooms from database
-        this.getLiveroom()
+        this.getLiverooms()
     }
 
     componentDidMount() {

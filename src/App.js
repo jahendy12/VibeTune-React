@@ -12,7 +12,7 @@ import Account from './screens/Account';
 import NoMatch from './screens/NoMatch';
 import NavBar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-import PlaylistCard from './components/playlists/PlaylistCard';
+// import PlaylistCard from './components/playlists/PlaylistCard';
 import PlaylistList from './components/playlists/PlaylistList';
 import LiveRoomList from './screens/LiveRoomsList';
 import LiveRoomCard from './components/liverooms/LiveRoomCard';
