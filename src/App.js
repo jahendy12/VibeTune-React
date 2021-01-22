@@ -19,7 +19,27 @@ import LiveRoomCard from './components/liverooms/LiveRoomCard';
 import UserProfile from './components/userprofile/userprofile';
 import './styles/styles.css'
 
-function App() {
+class App extends React.Component {
+  state = {
+    auth: false
+}
+
+handleSignIn = () => {
+    console.log('string')
+    this.setState({
+        auth: true
+    })
+}
+
+handleSignOut = () => {
+    this.setState({
+        auth: false
+    })
+}
+  
+  render () 
+  {
+
   return (
     <Router>
       <div id="app-content">
@@ -43,5 +63,5 @@ function App() {
     </Router>
   );
 }
-
+}
 export default App

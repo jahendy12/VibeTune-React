@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class SignInForm extends Component {
 	state = {
 		username: '',
 		password: '',
+		redirect: false
 	};
 
 	handleChange = (e) => {
@@ -44,16 +46,29 @@ class SignInForm extends Component {
 
 	loginUser = async (payload) => {
 		// login user
-		const response = await fetch('http://localhost:5000/users/login', {
+		const response = await fetch('https://vibetune-react.herokuapp.com/users/login', {
 			method: 'POST',
 			mode: 'cors',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(payload)
+		// make redirect in here	
 		})
 
 		// convert response to json
 		const json = await response.json()
 	}
+
+	setRedirect = () => {
+		this.setState({
+		  redirect: true
+		})
+	  }
+
+	renderRedirect = () => {
+		if (this.state.redirect) {
+		  return <Redirect to='/' />
+		}
+	  }  
 
 	render() {
 		// destructure state
@@ -83,9 +98,13 @@ class SignInForm extends Component {
 					/>
 				</div>
 				<div className="input-field">
+        			{/* {this.renderRedirect()} */}
+        			<button className="btn blue darken-1" type="submit" onClick={this.setRedirect}>Sign In</button>
+       			{/* </div>
+				<div className="input-field">
 					<button className="btn blue darken-1" type="submit">
 						Sign In
-                    </button>
+                    </button> */}
 					<br />
 					<br />
 					<Link to="/sign-up">I don't have an account</Link>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class SignUpForm extends Component {
     state = {
@@ -7,6 +8,7 @@ class SignUpForm extends Component {
         email: '',
         username: '',
         password: '',
+        redirect: false
     };
 
     handleChange = (e) => {
@@ -51,13 +53,25 @@ class SignUpForm extends Component {
     }
 
     addNewUser = async (payload) => {
-        const response = await fetch('http://localhost:5000/users/add', {
+        const response = await fetch('https://vibetune-react.herokuapp.com/users/add', {
             method: 'POST',
             mode: 'cors',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
         })
     }
+
+    setRedirect = () => {
+		this.setState({
+		  redirect: true
+		})
+	  }
+
+	renderRedirect = () => {
+		if (this.state.redirect) {
+		  return <Redirect to='/' />
+		}
+	  } 
 
     render() {
         // destructure state
@@ -107,12 +121,13 @@ class SignUpForm extends Component {
                     />
                 </div>
                 <div className="input-field">
-                    <button className="btn blue darken-1" type="submit">
-                        Sign Up
-                    </button>
+                    <div className="input-field">
+        			{this.renderRedirect()}
+        			<button className="btn blue darken-1" type="submit" onClick={this.setRedirect}>Sign Up</button>					  
                     <br />
                     <br />
                     <Link to="/sign-in">I'm already a user</Link>
+                </div>
                 </div>
             </form>
         );

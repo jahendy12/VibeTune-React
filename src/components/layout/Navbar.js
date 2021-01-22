@@ -10,23 +10,26 @@ class NavBar extends Component {
     state = {
         auth: false
     }
+    
+    // handleSignIn = () => {
+    //     console.log('string')
+    //     this.setState({
+    //         auth: true
+    //     })
+    // }
 
-    handleSignIn = () => {
-        this.setState({
-            auth: true
-        })
-    }
-
-    handleSignOut = () => {
-        this.setState({
-            auth: false
-        })
-    }
+    // handleSignOut = () => {
+    //     this.setState({
+    //         auth: false
+    //     })
+    // }
 
     render() {
         const { auth } = this.state
 
         const authLinks = auth ? <SignedInLinks handleSignOut={this.handleSignOut}/> : <SignedOutLinks handleSignIn={this.handleSignIn}/>
+        console.log(authLinks)
+        console.log(auth)
 
         return (
             <nav className="blue darken-1">
