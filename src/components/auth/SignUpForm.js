@@ -51,7 +51,7 @@ class SignUpForm extends Component {
     }
 
     addNewUser = async (payload) => {
-        const response = await fetch('http://localhost:5000/users/add', {
+        const response = await fetch('https://vibetune-express.herokuapp.com/users/add', {
             method: 'POST',
             mode: 'cors',
             headers: { 'Content-Type': 'application/json' },

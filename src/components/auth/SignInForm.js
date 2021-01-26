@@ -44,7 +44,7 @@ class SignInForm extends Component {
 
 	loginUser = async (payload) => {
 		// login user
-		const response = await fetch('http://localhost:5000/users/login', {
+		const response = await fetch('https://vibetune-express.herokuapp.com/login', {
 			method: 'POST',
 			mode: 'cors',
 			headers: { 'Content-Type': 'application/json' },
