@@ -14,7 +14,7 @@ class Playlists extends Component {
 
     getPlaylists = async () => {
         // fetch request to get playlists
-        const response = await fetch('http://localhost:5000/playlists')
+        const response = await fetch('https://vibetune-express.herokuapp.com/playlists')
 
         // convert response to json
         const json = await response.json()
@@ -27,7 +27,7 @@ class Playlists extends Component {
 
     deletePlaylist = async (id) => {
         // delete playlist from database
-        const response = await fetch(`http://localhost:5000/playlists/${id}`, {
+        const response = await fetch(`https://vibetune-express.herokuapp.com/playlists/${id}`, {
             method: 'DELETE'
         })
         
@@ -77,7 +77,7 @@ class Playlists extends Component {
         const { playlists } = this.state
 
         // post new playlist to database
-        const response = await fetch('http://localhost:5000/playlists/add', {
+        const response = await fetch('https://vibetune-express.herokuapp.com/playlists/add', {
             method: 'POST',
             mode: 'cors',
             headers: { 'Content-Type': 'application/json' },
@@ -118,7 +118,7 @@ class Playlists extends Component {
         }
 
         // post updated playlist to database
-        const response = await fetch(`http://localhost:5000/playlists/update/${_id}`, {
+        const response = await fetch(`https://vibetune-express.herokuapp.com/playlists/${_id}`, {
             method: 'POST',
             mode: 'cors',
             headers: { 'Content-Type': 'application/json' },
