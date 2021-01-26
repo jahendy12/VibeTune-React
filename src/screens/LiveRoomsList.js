@@ -12,7 +12,7 @@ class Liverooms extends Component {
 
     getLiverooms = async () => {
         // fetch request to get liverooms
-        const response = await fetch('https://vibetune-express.herokuapp.com/liverooms')
+        const response = await fetch('https://vibetune.herokuapp.com/liverooms')
 
         // convert response to json
         const parsedResponse = await response.json()
@@ -25,7 +25,7 @@ class Liverooms extends Component {
 
     deleteLiveroom = async (id) => {
         // delete liveroom from database
-        const response = await fetch(`https://vibetune-express.herokuapp.com/liverooms${id}`, {
+        const response = await fetch(`https://vibetune.herokuapp.com/liverooms${id}`, {
             method: 'DELETE'
         })
         
@@ -75,7 +75,7 @@ class Liverooms extends Component {
         const { liverooms } = this.state
 
         // post new liveroom to database
-        const response = await fetch('https://vibetune-express.herokuapp.com/liverooms/add', {
+        const response = await fetch('https://vibetune.herokuapp.com/liverooms/add', {
             method: 'POST',
             mode: 'cors',
             headers: { 'Content-Type': 'application/json' },
@@ -116,7 +116,7 @@ class Liverooms extends Component {
         }
 
         // post updated liveroom to database
-        const response = await fetch(`https://vibetune-express.herokuapp.com/liverooms/${_id}`, {
+        const response = await fetch(`https://vibetune.herokuapp.com/liverooms/${_id}`, {
             method: 'POST',
             mode: 'cors',
             headers: { 'Content-Type': 'application/json' },
