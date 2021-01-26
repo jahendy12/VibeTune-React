@@ -1,4 +1,5 @@
 // unimportant comment
+// another comment
 
 import React, { Component } from 'react';
 
